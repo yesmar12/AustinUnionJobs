@@ -72,5 +72,21 @@
         "url": "https://www.austintexas.gov/emsrecruiting/careers"
       }
     ]
-  }
+  },
+  {
+  "union": "National Nurses United (NNU)",
+  "desc": "National Nurses United is the largest union and professional association of registered nurses in the United States, advocating for improved patient care and nursing standards.",
+  "url": "https://www.nationalnursesunited.org/",
+  "jobsites": [
+    {
+      "name": "Ascension Seton Careers",
+      "url": "https://jobs.ascension.org/us/en/texas/austin/seton/ascension-seton-medical-center-austin"
+    },
+    {
+      "name": "NNU Careers",
+      "url": "https://www.nationalnursesunited.org/jobs"
+    }
+  ]
+}
+
 ]

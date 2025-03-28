@@ -27,7 +27,7 @@ export default function UnionPage({ params }: PageProps) {
   }
   
   return (
-    <div class="px-4 py-8 mx-auto bg-gray-100 min-h-screen">
+    <div class="px-4 mx-auto bg-gray-100">
       <div class="max-w-screen-lg mx-auto">
         
         <div class="mb-8">

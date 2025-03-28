@@ -1,7 +1,7 @@
 import { UnionCard } from "../components/UnionCard.tsx";
 import { Union } from "../types/union.ts";
 import { slugify } from "../utils/slugify.ts";
-import Button from "../components/Button.tsx";
+import { shuffle } from "../utils/shuffle.ts";
 
 // Import the JSON data
 const unionData = JSON.parse(Deno.readTextFileSync("./jobs.jsonc")) as Union[];
@@ -11,18 +11,20 @@ export default function Home() {
   const unions = (unionData as Union[]).filter((union) => union.union);
 
   return (
-    <div class="px-4 py-8 mx-auto bg-gray-100 min-h-screen">
-      <div class="max-w-screen-lg mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {unions.map((union) => (
-            <UnionCard
-              key={union.union}
-              union={union.union}
-              desc={union.desc}
-              url={union.url}
-              slug={slugify(union.union)}
-            />
-          ))}
+    <div>
+      <div class="px-4 py-8 mx-auto bg-gray-100">
+        <div class="max-w-screen-lg mx-auto">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {shuffle(unions).map((union) => (
+              <UnionCard
+                key={union.union}
+                union={union.union}
+                desc={union.desc}
+                url={union.url}
+                slug={slugify(union.union)}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </div>
