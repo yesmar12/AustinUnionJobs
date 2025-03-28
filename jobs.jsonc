@@ -1,0 +1,76 @@
+[
+  {
+    "union": "IBEW 520",
+    "desc": "The International Brotherhood of Electrical Workers (IBEW) Local 520 is a labor union representing electrical workers.",
+    "url": "https://www.ibew520.org/",
+    "jobsites": [
+      {
+        "name": "IBEW 520 Job Board",
+        "url": "https://ibew520.recruitee.com/"
+      }
+    ]
+  },
+  {
+    "union": "AFSCME Local 1624",
+    "desc": "AFSCME Local 1624 represents public service workers in the Austin area.",
+    "url": "https://www.afscme1624.org/",
+    "jobsites": [
+      {
+        "name": "City of Austin",
+        "url": "https://www.austincityjobs.org/"
+      },
+      {
+        "name": "Travis County",
+        "url": "https://www.governmentjobs.com/careers/traviscounty"
+      }
+    ]
+  },
+  {
+    "union": "TSEU",
+    "desc": "Texas State Employees Union represents state workers across Texas.",
+    "url": "https://www.cwa-tseu.org/",
+    "jobsites": [
+      {
+        "name": "WorkInTexas.com",
+        "url": "https://www.workintexas.com/vosnet/guest.aspx?guesttype=IND&whereto=TXSTATEEMPJOBS&qlink=1"
+      },
+      {
+        "name": "Work for TSEU",
+        "url": "https://cwa-tseu.org/about-tseu/work-for-tseu/"
+      }
+    ]
+  },
+  {
+    "union": "United Workers of Integral Care",
+    "desc": "Represents mental health workers at Integral Care in Austin.",
+    "url": "https://uwic-cwa.org/",
+    "jobsites": [
+      {
+        "name": "Integral Care Job Listings",
+        "url": "https://integralcare.e3applicants.com/careers/"
+      }
+    ]
+  },
+  {
+    "union": "Education Austin",
+    "desc": "Education union representing Austin Independent School District employees.",
+    "url": "https://www.educationaustin.org/",
+    "jobsites": [
+      {
+        "name": "Austin ISD Job Openings",
+        "url": "https://www.applitrack.com/austin/onlineapp/"
+      }
+    ]
+  },
+  {
+    "union": "Austin EMS Association",
+    "desc": "Represents over 600 EMS professionals serving the City of Austin and Travis County.",
+    "url": "https://www.facebook.com/AustinEMSA/",
+    "jobsites": [
+      {
+        "name": "Austin-Travis County EMS Careers",
+        "url": "https://www.austintexas.gov/emsrecruiting/careers"
+      }
+    ]
+  }
+]
