@@ -29,13 +29,8 @@ export default function UnionPage({ params }: PageProps) {
   return (
     <div class="px-4 py-8 mx-auto bg-gray-100 min-h-screen">
       <div class="max-w-screen-lg mx-auto">
-        <div class="mb-6">
-          <Button>
-            <a href="/" class="w-full block">← Back to All Unions</a>
-          </Button>
-        </div>
         
-        <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+        <div class="mb-8">
           <h1 class="text-3xl font-bold mb-4">{union.union}</h1>
           <p class="text-gray-700 mb-6">{union.desc}</p>
           
