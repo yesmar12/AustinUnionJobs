@@ -30,11 +30,6 @@ export default function App(props: PageProps<Data>) {
         <header class="bg-gray-100 pt-4">
           <div class="max-w-screen-lg mx-auto px-4 flex flex-col items-center">
             <div class="flex justify-between w-full mb-2">
-              {!isContactPage && (
-                <Button>
-                  <a href="/contact">Contact Us</a>
-                </Button>
-              )}
               <Button>
                 <a
                   href="https://workerorganizing.org/support/"
@@ -45,6 +40,11 @@ export default function App(props: PageProps<Data>) {
                   Organize Your Workplace
                 </a>
               </Button>
+              {!isContactPage && (
+                <Button>
+                  <a href="/contact">Contact Us</a>
+                </Button>
+              )}
             </div>
             <a href="/">
               <h1 class="text-4xl font-bold text-center mb-2">
