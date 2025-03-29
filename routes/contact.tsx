@@ -1,7 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
-import Toast from "../islands/Toast.tsx";
 import { sendMail } from "../utils/send.ts";
+import { Data as RenderToast } from "./_app.tsx";
 
 export const handler: Handlers = {
   async POST(req: Request, ctx: FreshContext) {
@@ -14,6 +14,19 @@ export const handler: Handlers = {
 
     console.log("Form submitted", { name, email, phone, industry, comment });
 
+    const successResponse: RenderToast = {
+      toastDetails: {
+        message: "Your submission has been recieved!",
+        error: false,
+      },
+    };
+    const failureResponse: RenderToast = {
+      toastDetails: {
+        message: "There was an error and your message was not recieved",
+        error: true,
+      },
+    };
+
     try {
       if (!email || typeof email !== "string") {
         throw new Error("Email is required");
@@ -22,27 +35,23 @@ export const handler: Handlers = {
         throw new Error("Name is required");
       }
       const subject = `Contact Form Submission from ${name}`;
-      const text = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nIndustry: ${industry}\nComment: ${comment}`;
+      const text =
+`Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nIndustry: ${industry}\nComment: ${comment}`;
 
       await sendMail("ramsey12345@pm.me", subject, text);
       console.log("Email sent successfully");
     } catch (error: any) {
       console.error("Failed to send email", error);
       // Optionally set a different data to indicate failure
-      return ctx.render({ message: "There was an error and your message was not recieved", error });
+      return ctx.render(failureResponse);
     }
 
-    return ctx.render({ message: "Your submission has been recieved!" });
+    return ctx.render(successResponse);
   },
 };
 
-interface Data {
-  message?: string;
-  error?: boolean;
-}
 
-const ContactPage = ({ data }: PageProps<Data>) => {
-  const { message, error } = data || {message: undefined, error: false};
+const ContactPage = () => {
 
   return (
     <>
@@ -165,7 +174,6 @@ const ContactPage = ({ data }: PageProps<Data>) => {
           </div>
         </div>
       </div>
-      <Toast message={message||""} show={Boolean(message)} error={error} />
     </>
   );
 };

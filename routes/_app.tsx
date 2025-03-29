@@ -1,8 +1,17 @@
 import { type PageProps } from "$fresh/server.ts";
 import Button from "../components/Button.tsx";
+import Toast, { ToastProps } from "../islands/Toast.tsx";
 
-export default function App({ Component, url }: PageProps) {
+export interface Data {
+  toastDetails?: ToastProps;
+}
+
+export default function App(props: PageProps<Data>) {
+  console.log("_app data: ", props.data);
+  const { Component, url } = props;
+  const toastDetails = props.data?.toastDetails;
   const isContactPage = url.pathname === "/contact";
+
 
   return (
     <html>
@@ -12,6 +21,12 @@ export default function App({ Component, url }: PageProps) {
         <title>AustinUnionJobs</title>
         <link rel="stylesheet" href="/styles.css" />
       </head>
+      {toastDetails && (
+        <Toast
+          message={toastDetails.message}
+          error={toastDetails.error}
+        />
+      )}
       <body class="flex flex-col min-h-screen">
         <header class="bg-gray-100 pt-4">
           <div class="max-w-screen-lg mx-auto px-4 flex flex-col items-center">

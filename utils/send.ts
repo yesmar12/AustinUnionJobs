@@ -23,8 +23,8 @@ export async function sendMail(
   formData.append("subject", subject);
   formData.append("text", text);
 
-  const url = `https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages`;
-
+  //const url = `https://api.mailgun.net/v3/${MAILGUN_DOMAIN}/messages`;
+  const url = `localhost`;
   try {
     const response = await fetch(url, {
       method: "POST",
