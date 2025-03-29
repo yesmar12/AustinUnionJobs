@@ -7,7 +7,7 @@ import * as $_app from "./routes/_app.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $index from "./routes/index.tsx";
 import * as $unions_slug_ from "./routes/unions/[slug].tsx";
-
+import * as $Toast from "./islands/Toast.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -18,7 +18,9 @@ const manifest = {
     "./routes/index.tsx": $index,
     "./routes/unions/[slug].tsx": $unions_slug_,
   },
-  islands: {},
+  islands: {
+    "./islands/Toast.tsx": $Toast,
+  },
   baseUrl: import.meta.url,
 } satisfies Manifest;
 

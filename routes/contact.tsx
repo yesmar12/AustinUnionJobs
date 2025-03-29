@@ -1,5 +1,7 @@
 import { Head } from "$fresh/runtime.ts";
 import { FreshContext, Handlers, PageProps } from "$fresh/server.ts";
+import Toast from "../islands/Toast.tsx";
+import { sendMail } from "../utils/send.ts";
 
 export const handler: Handlers = {
   async POST(req: Request, ctx: FreshContext) {
@@ -12,18 +14,36 @@ export const handler: Handlers = {
 
     console.log("Form submitted", { name, email, phone, industry, comment });
 
-    // TODO: Implement email sending or database storage here
+    try {
+      if (!email || typeof email !== "string") {
+        throw new Error("Email is required");
+      }
+      if (!name || typeof name !== "string") {
+        throw new Error("Name is required");
+      }
+      const subject = `Contact Form Submission from ${name}`;
+      const text = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nIndustry: ${industry}\nComment: ${comment}`;
 
-    return ctx.render({ submitted: true });
+      await sendMail("ramsey12345@pm.me", subject, text);
+      console.log("Email sent successfully");
+    } catch (error: any) {
+      console.error("Failed to send email", error);
+      // Optionally set a different data to indicate failure
+      return ctx.render({ message: "There was an error and your message was not recieved", error });
+    }
+
+    return ctx.render({ message: "Your submission has been recieved!" });
   },
 };
 
 interface Data {
-  submitted?: boolean;
+  message?: string;
+  error?: boolean;
 }
 
 const ContactPage = ({ data }: PageProps<Data>) => {
-  const { submitted } = data || { submitted: false };
+  const { message, error } = data || {message: undefined, error: false};
+
   return (
     <>
       <Head>
@@ -33,10 +53,10 @@ const ContactPage = ({ data }: PageProps<Data>) => {
         <div class="bg-white shadow-md rounded-lg inline-block px-6 py-8">
           <div class="relative max-w-xl mx-auto">
             <div class="text-center">
-              <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+              <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 mb-4">
                 Contact Us If:
               </h2>
-              <ul class="list-disc">
+              <ul>
                 <li>You got the job and want to celebrate!</li>
                 <li>You want to get a job with an organizing workplace.</li>
                 <li>You are looking for help applying to a job.</li>
@@ -145,6 +165,7 @@ const ContactPage = ({ data }: PageProps<Data>) => {
           </div>
         </div>
       </div>
+      <Toast message={message||""} show={Boolean(message)} error={error} />
     </>
   );
 };
