@@ -12,7 +12,6 @@ export default function App(props: PageProps<Data>) {
   const toastDetails = props.data?.toastDetails;
   const isContactPage = url.pathname === "/contact";
 
-
   return (
     <html>
       <head>
@@ -61,9 +60,9 @@ export default function App(props: PageProps<Data>) {
         <div class="bg-gray-100 py-4 flex-grow">
           <Component />
         </div>
-        <div class="bg-gray-100">
+        <div class="bg-gray-100 flex justify-center items-center py-4">
           Made by Ramsey
-          <a href="https://github.com/yesmar12">
+          <a href="https://github.com/yesmar12" class="px-4">
             <svg
               width="24"
               height="24"
@@ -76,6 +75,9 @@ export default function App(props: PageProps<Data>) {
                 fill="#323544"
               />
             </svg>
+          </a>
+          <a href="/privacy-policy" class="text-blue-600 hover:underline">
+            Privacy Policy
           </a>
         </div>
       </body>
