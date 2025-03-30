@@ -8,6 +8,7 @@ export default function PrivacyPolicy() {
       </Head>
       <div class="container mx-auto p-4">
         <h1 class="text-2xl font-bold mb-4">Privacy Policy</h1>
+        <p class="text-sm text-gray-600 mb-4">Last Updated: March 30, 2025</p>
         <p>
           This privacy policy describes how Austin Union Jobs collects, uses,
           and shares information about you when you use our website.
@@ -31,19 +32,22 @@ export default function PrivacyPolicy() {
         </ul>
         <h2 class="text-xl font-bold mt-4">Sharing Your Information</h2>
         <p>
-          We share your information with the following third parties:
+          Your information is shared with the following third parties:
         </p>
         <ul>
           <li>
-            Service providers who help us operate our website and services, such
-            as our deployment platform and email provider.
+            Deno Deploy - our hosting provider
+          </li>
+          <li>
+            Mailgun - our email service provider
           </li>
         </ul>
         <h2 class="text-xl font-bold mt-4">Your Choices</h2>
         <p>
-          As the only data we collect is that which your explicitly provide to
-          us, and used exclusivly to enable our website the only way to limit
-          our data collection is by refraining the use of our website.
+          We only collect the information you explicitly provide via the contact
+          form. This information is used solely to respond to your inquiry. If
+          you do not wish for us to collect this information, please refrain
+          from using the contact form.
         </p>
         <h2 class="text-xl font-bold mt-4">Data Security</h2>
         <p>
